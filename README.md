@@ -1,6 +1,6 @@
 # py-pong
 
-This repository contains a compiled example for the following tutorial:
+This repository contains a compiled example for the following tutorial.
 
 https://pysdl2.readthedocs.io/en/rel_0_9_6/tutorial/pong.html
 
