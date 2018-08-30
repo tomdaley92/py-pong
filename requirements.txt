@@ -1,0 +1,6 @@
+altgraph==0.16.1
+future==0.16.0
+macholib==1.10
+pefile==2018.8.8
+PyInstaller==3.3.1
+PySDL2==0.9.6
