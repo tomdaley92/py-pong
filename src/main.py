@@ -9,8 +9,6 @@ this was written.
 import os
 import sys
 
-print(__file__)
-
 if getattr(sys, 'frozen', False):
     # running in a app bundle or executable
     application_path = os.path.dirname(sys.executable)
