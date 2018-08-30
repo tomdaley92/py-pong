@@ -2,7 +2,7 @@
 
 # Python's `virtualenv` must be installed!
 # PyInstaller 3.3.1 Gives an fs-encoding error with Python 3.7+
-# Please use Python 3.6 or lower
+# Please use Python 3.3-3.6
 
 # configurable items
 APP_NAME="Pong" 
