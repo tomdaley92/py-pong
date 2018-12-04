@@ -10,7 +10,7 @@ import os
 import sys
 
 if getattr(sys, 'frozen', False):
-    # running in a app bundle or executable
+    # running in an app bundle or executable
     application_path = os.path.dirname(sys.executable)
 elif __file__:
     # running live
