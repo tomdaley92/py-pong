@@ -1,8 +1,6 @@
 # py-pong
 
-This repository contains a compiled example for the following tutorial.
-
-https://pysdl2.readthedocs.io/en/rel_0_9_6/tutorial/pong.html
+This repository contains a compiled example for the following [tutorial](https://pysdl2.readthedocs.io/en/rel_0_9_6/tutorial/pong.html)
 
 ## Requirements
 
@@ -12,5 +10,5 @@ https://pysdl2.readthedocs.io/en/rel_0_9_6/tutorial/pong.html
 
 ## Building on MacOS
 
-1. Open the terminal and navigate to the py-pong directory.
-2. Type `source make.sh`.
+1. Open the terminal and navigate to the py-pong directory
+2. Type `source make.sh`
