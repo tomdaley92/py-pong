@@ -1,8 +1,5 @@
 #! /usr/bin/env bash
 
-# PyInstaller 3.3.1 Gives an fs-encoding error with Python 3.7+
-# Please use Python 3.3-3.6
-
 # configurable items
 APP_NAME="Pong" 
 ENTRY_POINT="src/main.py"
