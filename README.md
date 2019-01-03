@@ -6,9 +6,7 @@ https://pysdl2.readthedocs.io/en/rel_0_9_6/tutorial/pong.html
 
 ## Requirements
 
-- Python 3.3-3.6
-  - PyInstaller 3.3.1 supports Python 2.7, 3.3–3.6
-- Python's virtualenv tool
+- Python 3.6+
 - MacOS 10.6+ (Snow Leopard or later)
   - libSDL2.dylib compiled for min MacOS version 10.6 with 10.12 SDK
 

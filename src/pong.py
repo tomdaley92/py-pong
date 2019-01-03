@@ -4,13 +4,14 @@ import sdl2
 import sdl2.ext
 
 WHITE = sdl2.ext.Color(255, 255, 255)
+BLACK = sdl2.ext.Color(0, 0, 0)
 
 class SoftwareRenderer(sdl2.ext.SoftwareSpriteRenderSystem):
     def __init__(self, window):
         super(SoftwareRenderer, self).__init__(window)
 
     def render(self, components):
-        sdl2.ext.fill(self.surface, sdl2.ext.Color(0, 0, 0))
+        sdl2.ext.fill(self.surface, BLACK)
         super(SoftwareRenderer, self).render(components)
 
 class MovementSystem(sdl2.ext.Applicator):
@@ -37,7 +38,6 @@ class MovementSystem(sdl2.ext.Applicator):
                 sprite.x = self.maxx - swidth
             if pmaxy > self.maxy:
                 sprite.y = self.maxy - sheight
-
 
 class Velocity(object):
     def __init__(self):
@@ -92,12 +92,10 @@ class CollisionSystem(sdl2.ext.Applicator):
             else:
                 self.ball.velocity.vy = - self.ball.velocity.vy
 
-        if (self.ball.sprite.y <= self.miny or
-            self.ball.sprite.y + self.ball.sprite.size[1] >= self.maxy):
+        if (self.ball.sprite.y <= self.miny or self.ball.sprite.y + self.ball.sprite.size[1] >= self.maxy):
             self.ball.velocity.vy = - self.ball.velocity.vy
 
-        if (self.ball.sprite.x <= self.minx or
-            self.ball.sprite.x + self.ball.sprite.size[0] >= self.maxx):
+        if (self.ball.sprite.x <= self.minx or self.ball.sprite.x + self.ball.sprite.size[0] >= self.maxx):
             self.ball.velocity.vx = - self.ball.velocity.vx
 
 class TrackingAIController(sdl2.ext.Applicator):
