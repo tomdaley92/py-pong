@@ -6,6 +6,7 @@ import sdl2.ext
 WHITE = sdl2.ext.Color(255, 255, 255)
 BLACK = sdl2.ext.Color(0, 0, 0)
 
+
 class SoftwareRenderer(sdl2.ext.SoftwareSpriteRenderSystem):
     def __init__(self, window):
         super(SoftwareRenderer, self).__init__(window)
@@ -13,6 +14,7 @@ class SoftwareRenderer(sdl2.ext.SoftwareSpriteRenderSystem):
     def render(self, components):
         sdl2.ext.fill(self.surface, BLACK)
         super(SoftwareRenderer, self).render(components)
+
 
 class MovementSystem(sdl2.ext.Applicator):
     def __init__(self, minx, miny, maxx, maxy):
@@ -39,17 +41,20 @@ class MovementSystem(sdl2.ext.Applicator):
             if pmaxy > self.maxy:
                 sprite.y = self.maxy - sheight
 
+
 class Velocity(object):
     def __init__(self):
         super(Velocity, self).__init__()
         self.vx = 0
         self.vy = 0
 
+
 class Ball(sdl2.ext.Entity):
     def __init__(self, world, sprite, posx=0, posy=0):
         self.sprite = sprite
         self.sprite.position = posx, posy
         self.velocity = Velocity()
+
 
 class CollisionSystem(sdl2.ext.Applicator):
     def __init__(self, minx, miny, maxx, maxy):
@@ -69,8 +74,7 @@ class CollisionSystem(sdl2.ext.Applicator):
         left, top, right, bottom = sprite.area
         bleft, btop, bright, bbottom = self.ball.sprite.area
 
-        return (bleft < right and bright > left and
-                btop < bottom and bbottom > top)
+        return bleft < right and bright > left and btop < bottom and bbottom > top
 
     def process(self, world, componentsets):
         collitems = [comp for comp in componentsets if self._overlap(comp)]
@@ -90,13 +94,20 @@ class CollisionSystem(sdl2.ext.Applicator):
                 factor = (ballcentery - paddlecentery) // stepsize
                 self.ball.velocity.vy = int(round(factor * degrees))
             else:
-                self.ball.velocity.vy = - self.ball.velocity.vy
+                self.ball.velocity.vy = -self.ball.velocity.vy
 
-        if (self.ball.sprite.y <= self.miny or self.ball.sprite.y + self.ball.sprite.size[1] >= self.maxy):
-            self.ball.velocity.vy = - self.ball.velocity.vy
+        if (
+            self.ball.sprite.y <= self.miny
+            or self.ball.sprite.y + self.ball.sprite.size[1] >= self.maxy
+        ):
+            self.ball.velocity.vy = -self.ball.velocity.vy
 
-        if (self.ball.sprite.x <= self.minx or self.ball.sprite.x + self.ball.sprite.size[0] >= self.maxx):
-            self.ball.velocity.vx = - self.ball.velocity.vx
+        if (
+            self.ball.sprite.x <= self.minx
+            or self.ball.sprite.x + self.ball.sprite.size[0] >= self.maxx
+        ):
+            self.ball.velocity.vx = -self.ball.velocity.vx
+
 
 class TrackingAIController(sdl2.ext.Applicator):
     def __init__(self, miny, maxy):
@@ -129,10 +140,12 @@ class TrackingAIController(sdl2.ext.Applicator):
                 else:
                     vel.vy = 0
 
+
 class PlayerData(object):
     def __init__(self):
         super(PlayerData, self).__init__()
         self.ai = False
+
 
 class Player(sdl2.ext.Entity):
     def __init__(self, world, sprite, posx=0, posy=0, ai=False):
@@ -142,7 +155,8 @@ class Player(sdl2.ext.Entity):
         self.playerdata = PlayerData()
         self.playerdata.ai = ai
 
-def run():   
+
+def run():
     sdl2.ext.init()
     window = sdl2.ext.Window("The Pong Game", size=(800, 600))
     window.show()
@@ -154,7 +168,7 @@ def run():
     collision = CollisionSystem(0, 0, 800, 600)
     spriterenderer = SoftwareRenderer(window)
     aicontroller = TrackingAIController(0, 600)
-    
+
     world = sdl2.ext.World()
     world.add_system(aicontroller)
     world.add_system(movement)
