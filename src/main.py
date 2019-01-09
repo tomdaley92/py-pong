@@ -16,7 +16,7 @@ else:
 os.environ["PYSDL2_DLL_PATH"] = (
     APPLICATION_PATH + "\\..\\Frameworks\\sdl2"
     if os.name == "nt"
-    else "/../Frameworks/sdl2"
+    else APPLICATION_PATH + "/../Frameworks/sdl2"
 )
 
 print("PYSDL2_DLL_PATH=" + '"' + str(os.environ.get("PYSDL2_DLL_PATH", "unset")) + '"')
