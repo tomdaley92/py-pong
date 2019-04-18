@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # https://pysdl2.readthedocs.io/en/rel_0_9_6/tutorial/pong.html
 
 import sdl2

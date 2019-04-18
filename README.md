@@ -12,3 +12,9 @@ This repository contains a compiled example for the following [tutorial](https:/
 
 1. Open the terminal and navigate to the py-pong directory
 2. Type `source make.sh`
+
+
+## Building on Windows
+
+1. Open the terminal and navigate to the py-pong directory
+2. Type `make.bat`
